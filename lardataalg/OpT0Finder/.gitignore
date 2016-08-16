@@ -1,0 +1,6 @@
+*.o
+*.swp
+*.swo
+*.root
+*Dict.cxx
+SelectionTool_OpT0FinderApp.cxx

@@ -1,0 +1,13 @@
+<!--  Include art::Wrapper lines for objects that we would like to put  -->
+<!--  into the event -->
+<!--  Include the non-wrapper lines for all objects on the art::Wrapper --> 
+<!--  lines and for all objects that are data members of those objects.-->
+ 
+<lcgdict>
+  <class name="phot::PhotonLibrary"    ClassVersion="10">
+   <version ClassVersion="10" checksum="2903192896"/>
+  </class>
+  <class name="phot::PhotonVisibilityService" ClassVersion="10">
+   <version ClassVersion="10" checksum="2411886681"/>
+  </class>
+</lcgdict>

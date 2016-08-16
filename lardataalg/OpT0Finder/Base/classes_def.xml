@@ -1,0 +1,27 @@
+<!--  Include art::Wrapper lines for objects that we would like to put  -->
+<!--  into the event -->
+<!--  Include the non-wrapper lines for all objects on the art::Wrapper --> 
+<!--  lines and for all objects that are data members of those objects.-->
+ 
+<lcgdict>
+<!--
+  <class name="flashana::BaseAlgorithm.h"    ClassVersion="10">
+  </class>
+  <class name="flashana::BaseFlashFilter.h" ClassVersion="10">
+  </class>
+  <class name="flashana::BaseFlashHypothesis.h" ClassVersion="10">
+  </class>
+  <class name="flashana::BaseFlashMatch.h"    ClassVersion="10">
+  </class>
+  <class name="flashana::BaseProhibitAlgo.h"    ClassVersion="10">
+  </class>
+  <class name="flashana::BaseTPCFilter.h " ClassVersion="10">
+  </class>
+  <class name="flashana::ColorPrint.h" ClassVersion="10">
+  </class>
+  <class name="flashana::FlashMatchManager.h"    ClassVersion="10">
+  </class>
+  <class name="flashana::OpT0FinderException.h" ClassVersion="10">
+  </class>
+-->
+</lcgdict>

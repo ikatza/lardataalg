@@ -20,7 +20,7 @@ endif
 #
 # Define directories to be compile upon a global "make"...
 #
-SUBDIRS := lardataalg test #ADD_NEW_SUBDIR ... do not remove this comment from this line
+SUBDIRS := lardataalg #ADD_NEW_SUBDIR ... do not remove this comment from this line
 
 #####################################################################################
 #

@@ -34,7 +34,7 @@ LDFLAGS += $(shell larlite-config --libs)
 #LDFLAGS += $(shell basictool-config --libs) 
 LDFLAGS += -L$(LARLITE_LIBDIR) -lBasicTool_LArPyBackend -lBasicTool_EMShowerTools -llarcoreobj_GeoAlgo -lBasicTool_FhiclLite -BasicTool_TreeGraph # THIS NEEDS TO BE CHANGED TO $(LARCOREOBJ_LIB) ONCE ENVIRONMENT VARIABLE IS CORRECTLY SET
 LDFLAGS += -L$(LARLITE_LIBDIR) -llardataalg_OpT0FinderBase
-LDFLAGS += -L$(LARLITE_LIBDIR) -llardataobj_OpT0PhotonLibrary
+LDFLAGS += -L$(LARLITE_LIBDIR) -llardataalg_OpT0PhotonLibrary
 LDFLAGS += -L$(shell root-config --libdir) -lMinuit #-lMinuit2
 
 # call the common GNUmakefile

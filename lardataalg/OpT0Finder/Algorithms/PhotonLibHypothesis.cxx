@@ -21,7 +21,7 @@ namespace flashana {
 //    art::ServiceHandle<phot::PhotonVisibilityService> vis;
 //    double xyz[3]={0.};
     
-    size_t n_pmt = BaseAlgorithm::NOpDets();//n_pmt returns 0 now, needs to be fixed
+    size_t n_pmt = 32; //BaseAlgorithm::NOpDets();//n_pmt returns 0 now, needs to be fixed
     
     for ( auto& v : flash.pe_v ) v = 0;
     

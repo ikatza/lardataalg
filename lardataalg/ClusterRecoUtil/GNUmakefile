@@ -12,15 +12,11 @@
 # IMPOSE CONDITION BETWEEN LARLITE_USERDEVDIR & PWD =>
 #   do not compile if PWD !=$LARLITE_USERDEVDIR is set elsewhere
 #
-ifndef LARLITE_USERDEVDIR
-ERROR_MESSAGE := $(error LARLITE_USERDEVDIR is not defined!)
-endif
-#
 #####################################################################################
 #
 # Define directories to be compile upon a global "make"...
 #
-SUBDIRS := ClusterRecoUtil PhotonLibrary OpT0Finder #ADD_NEW_SUBDIR ... do not remove this comment from this line
+SUBDIRS := Base Alg 
 
 #####################################################################################
 #
@@ -30,27 +26,14 @@ SUBDIRS := ClusterRecoUtil PhotonLibrary OpT0Finder #ADD_NEW_SUBDIR ... do not r
 .phony: all clean
 
 all:
-	@for i in $(SUBDIRS); do ( echo "" && echo "Compiling $$i..." && cd $(LARLITE_USERDEVDIR)/lardataalg/lardataalg/$$i && $(MAKE) ) || exit $$?; done
+	@for i in $(SUBDIRS); do ( echo "" && echo "Compiling $$i..." && cd $$i && $(MAKE) ) || exit $$?; done
 #####################################################################################
 #
 # CLEANs...
 #
 clean:
-	@for i in $(SUBDIRS); do ( echo "" && echo "Cleaning $$i..." && cd $(LARLITE_USERDEVDIR)/lardataalg/lardataalg/$$i && $(MAKE) clean && rm -f $(LARLITE_LIBDIR)/$$i.* ) || exit $$?; done
+	@for i in $(SUBDIRS); do ( echo "" && echo "Cleaning $$i..." && cd $$i && $(MAKE) clean && rm -f $(LARLITE_LIBDIR)/$$i.* ) || exit $$?; done
 
-#####################################################################################
-#
-# DOCUMENTATION...
-#
-doxygen:
-	@echo 'dOxygenising your code...'
-	@mkdir -p $(LARLITE_USERDEVDIR)/lardataalg/lardataalg/doc/dOxygenMyProject
-	@doxygen $(LARLITE_USERDEVDIR)/lardataalg/lardataalg/doc/doxygenMyProject.script
-
-doxygen+:
-	@echo 'dOxygenising MyProject + local-ROOT...'
-	@mkdir -p $(LARLITE_USERDEVDIR)/lardataalg/lardataalg/doc/dOxygenMyProject+
-	@doxygen $(LARLITE_USERDEVDIR)/lardataalg/lardataalg/doc/doxygenMyProject+.script
 #
 #####################################################################################
 #EOF

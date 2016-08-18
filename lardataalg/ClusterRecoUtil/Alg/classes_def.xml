@@ -1,0 +1,26 @@
+<!--  Include art::Wrapper lines for objects that we would like to put  -->
+<!--  into the event -->
+<!--  Include the non-wrapper lines for all objects on the art::Wrapper --> 
+<!--  lines and for all objects that are data members of those objects.-->
+ 
+<lcgdict>
+  <class name="cluster::ParamsAlgBase.h"    ClassVersion="10">
+  </class>
+  <class name="cluster::GetAverages"    ClassVersion="10">
+  </class>
+  <class name="cluster::FillPolygon"    ClassVersion="10">
+  </class>
+  <class name="cluster::RefineStartPoints"    ClassVersion="10">
+  </class>
+  <class name="cluster::GetRoughStartPoint"    ClassVersion="10">
+  </class>
+  <class name="cluster::InformedStartPoint"    ClassVersion="10">
+  </class>
+  <class name="cluster::SelectStartPoint"    ClassVersion="10">
+  </class>
+  <class name="cluster::FindShoweringPoint"    ClassVersion="10">
+  </class>
+  <class name="cluster::DefaultParamsAlg"    ClassVersion="10">
+  </class>
+  <class name="cluster::ClusterParamsAna"    ClassVersion="10">
+  </class></lcgdict>

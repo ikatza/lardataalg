@@ -1,0 +1,27 @@
+<!--  Include art::Wrapper lines for objects that we would like to put  -->
+<!--  into the event -->
+<!--  Include the non-wrapper lines for all objects on the art::Wrapper --> 
+<!--  lines and for all objects that are data members of those objects.-->
+ 
+<lcgdict>
+  <class name="Polygon2D.h"    ClassVersion="10">
+  </class>
+<!--
+  <class name="std::vector<larutil::PxHit>" ClassVersion="10">
+  </class>
+  <class name="std::vector<const larutil::PxHit*>" ClassVersion="10">
+  </class>
+-->
+  <class name="cluster::cluster_params"    ClassVersion="10">
+  </class>
+  <class name="std::vector<cluster::cluster_params>"    ClassVersion="10">
+  </class>
+  <class name="cluster::cluster_paramsAlg"    ClassVersion="10">
+  </class>
+  <class name="std::vector<::cluster::cluster_paramsAlg>"    ClassVersion="10">
+  </class>
+  <class name="cluster::CRUException"    ClassVersion="10">
+  </class>
+  <class name="cluster::CRUHelper"    ClassVersion="10">
+  </class>
+</lcgdict>

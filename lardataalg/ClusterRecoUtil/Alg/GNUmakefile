@@ -3,8 +3,8 @@
 #
 
 # specific names for this package
-DICT  = RecoTool_ClusterRecoUtilAlgDict
-SHLIB = libRecoTool_ClusterRecoUtilAlg.so
+DICT  = lardataalg_ClusterRecoUtilAlgDict
+SHLIB = liblardataalg_ClusterRecoUtilAlg.so
 SOURCES = $(filter-out $(DICT).cxx, $(wildcard *.cxx))
 FMWK_HEADERS = LinkDef.h $(DICT).h
 HEADERS = $(filter-out $(FMWK_HEADERS), $(wildcard *.h))
@@ -27,7 +27,7 @@ OSNAMEMODE      = $(OSNAME)
 
 # linker flags
 LDFLAGS += $(shell larlite-config --libs)
-LDFLAGS += -L$(LARLITE_LIBDIR) -lRecoTool_ClusterRecoUtilBase
+LDFLAGS += -L$(LARLITE_LIBDIR) -llardataalg_ClusterRecoUtilBase
 
 include $(LARLITE_BASEDIR)/Makefile/Makefile.${OSNAME}
 

@@ -2,7 +2,7 @@
 #define INFORMEDSTARTPOINT_CXX
 
 #include "InformedStartPoint.h"
-#include "lardataalg/ClusterRecoUtil/Alg/CRUException.h"
+#include "lardataalg/ClusterRecoUtil/Base/CRUException.h"
 #include "LArUtil/GeometryHelper.h"
 #include <map>
 #include <iomanip>

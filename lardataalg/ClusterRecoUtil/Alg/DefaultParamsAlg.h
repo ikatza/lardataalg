@@ -15,7 +15,7 @@
 #define DEFAULTPARAMSALG_H
 
 #include <iostream>
-#include "lardataalg/ClusterRecoUtil/Alg/ClusterParamsAlg.h"
+#include "lardataalg/ClusterRecoUtil/Base/ClusterParamsAlg.h"
 #include "GetAverages.h"
 #include "FillPolygon.h"
 #include "GetRoughStartPoint.h"

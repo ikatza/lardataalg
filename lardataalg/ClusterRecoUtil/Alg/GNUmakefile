@@ -15,6 +15,7 @@ INCFLAGS  = -I.                      #Include itself
 INCFLAGS += $(shell larlite-config --includes)
 INCFLAGS += $(shell recotool-config --includes)
 INCFLAGS += -I../Base #Include one layer up
+INCFLAGS += -I$(LARLITE_USERDEVDIR)/lardataalg
 
 # Add -p flag to CINT 
 CINTFLAGS += -p
@@ -26,7 +27,7 @@ OSNAMEMODE      = $(OSNAME)
 
 # linker flags
 LDFLAGS += $(shell larlite-config --libs)
-LDFLAGS += -L$(LARLITE_LIBDIR) -lRecoTool_ClusterRecoUtil
+LDFLAGS += -L$(LARLITE_LIBDIR) -lRecoTool_ClusterRecoUtilBase
 
 include $(LARLITE_BASEDIR)/Makefile/Makefile.${OSNAME}
 

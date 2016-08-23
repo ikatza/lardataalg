@@ -1,0 +1,23 @@
+-I/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/UserDev/lardataalg/ 
+-I. 
+-pthread -std=c++14 -Wno-deprecated-declarations -m64 
+-I/products/root/v6_06_04b/Linux64bit+2.6-2.12-e10-prof/include 
+-g -pedantic -Wno-unused-local-typedefs 
+-I/products/fhiclcpp/v3_19_00/include 
+-I/products/cetlib/v1_18_00/include 
+-I/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/core 
+-I/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/UserDev/larcorealg/ 
+-I/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/UserDev/BasicTool/ 
+-g -O3 -std=c++14 -W -Wall -Wno-deprecated -fPIC -D_CORE_Linux_ 
+-L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -llardataalg_OpT0FinderApp 
+-L/products/root/v6_06_04b/Linux64bit+2.6-2.12-e10-nu-prof/lib -lCore -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -pthread -lm -ldl -rdynamic -lPhysics -lMatrix -g 
+-L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -lLArLite_Analysis -lLArLite_LArUtil -lLArLite_DataFormat -lLArLite_Base 
+-L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -lBasicTool_LArPyBackend -lBasicTool_EMShowerTools -llarcorealg_GeoAlgo -lBasicTool_FhiclLite -BasicTool_TreeGraph
+-L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -llardataalg_OpT0FinderBase -llardataalg_OpT0FinderAlgorithms -llardataalg_OpT0PhotonLibrary -llarcorealg_GeoAlgo 
+-L/products/fhiclcpp/v3_19_00/slf6.x86_64.e10.prof/lib -lfhiclcpp 
+-L/products/cetlib/v1_18_00/slf6.x86_64.e10.prof/lib -lcetlib 
+-Wl,-rpath,/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib
+
+
+g++ -o /home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib/liblardataalg_OpT0FinderApp.so MCQCluster.o MichelFlashMatching.o PaddleUBT0Finder.o UBT0Finder.o lardataalg_OpT0FinderAppCint.o -g -fPIC -shared -Wl,-rpath,/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -lLArLite_Analysis -lLArLite_LArUtil -lLArLite_DataFormat -lLArLite_Base -L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -lBasicTool_LArPyBackend -lBasicTool_EMShowerTools -llarcorealg_GeoAlgo -lBasicTool_FhiclLite -BasicTool_TreeGraph -L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -llardataalg_OpT0FinderBase -L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -llardataalg_OpT0PhotonLibrary -L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -llardataalg_OpT0FinderAlgorithms -L/products/root/v6_06_04b/Linux64bit+2.6-2.12-e10-nu-prof/lib -lCore -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -lMultiProc -pthread -lm -ldl -rdynamic 
+

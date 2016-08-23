@@ -16,7 +16,7 @@
 
 #include "OpT0FinderTypes.h"
 #include "ColorPrint.h"
-#include "larcoreobj/GeoAlgo/GeoAABox.h"
+#include "larcorealg/GeoAlgo/GeoAABox.h"
 //#include "FhiclLite/PSet.h"
 #include "fhiclcpp/ParameterSet.h"
 #include <vector>

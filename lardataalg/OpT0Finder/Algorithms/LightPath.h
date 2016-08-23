@@ -17,7 +17,7 @@
 #include <iostream>
 #include <numeric>
 //#include "GeoAlgo/GeoAlgo.h"
-#include "larcoreobj/GeoAlgo/GeoAlgo.h"
+#include "larcorealg/GeoAlgo/GeoAlgo.h"
 #include <functional>
 #include <algorithm>
 //#include "OpT0Finder/Base/BaseAlgorithm.h"

@@ -215,7 +215,7 @@ namespace flashana {
   // CORE FUNCTION
   std::vector<FlashMatch_t> FlashMatchManager::Match()
   {
-    std::cout << "\nIN FlashMatchManager::Match()";
+//    std::cout << "\nIN FlashMatchManager::Match()";
     if (!_alg_flash_match)
       throw OpT0FinderException("Flash matching algorithm is reuqired! (not attached)");
     if (!_alg_flash_hypothesis)

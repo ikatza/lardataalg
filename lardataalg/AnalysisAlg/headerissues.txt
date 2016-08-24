@@ -1,0 +1,5 @@
+./CalorimetryAlg.cxx:16:#include "LArUtil/Geometry.h"
+./CalorimetryAlg.cxx:18:#include "CalorimetryAlg.h"
+./CalorimetryAlg.h:19:#include "LArUtil/LArProperties.h"
+./CalorimetryAlg.h:20:#include "LArUtil/DetectorProperties.h"
+./CalorimetryAlg.h:21:#include "LArUtil/PxUtils.h"

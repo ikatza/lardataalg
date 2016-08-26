@@ -1,8 +1,8 @@
 # ======================================================================
-#  larcoreobj main build file
+#  larcorealg main build file
 #
 #  cd .../path/to/build/directory
-#  source .../path/to/larcoreobj/ups/setup_for_development <-d|-p>
+#  source .../path/to/larcorealg/ups/setup_for_development <-d|-p>
 #  cmake [-DCMAKE_INSTALL_PREFIX=/install/path]
 #        -DCMAKE_BUILD_TYPE=$CETPKG_TYPE
 #        $CETPKG_SOURCE

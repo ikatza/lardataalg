@@ -20,7 +20,8 @@ endif
 #
 # Define directories to be compile upon a global "make"...
 #
-SUBDIRS := ClusterRecoUtil PhotonLibrary OpT0Finder #ADD_NEW_SUBDIR ... do not remove this comment from this line
+# SUBDIRS := ClusterRecoUtil Cluster3DRecoUtil AnalysisAlg CMTool MCComp ShowerReco3D PhotonLibrary OpT0Finder #ADD_NEW_SUBDIR ... do not remove this comment from this line
+SUBDIRS := PhotonLibrary OpT0Finder #ADD_NEW_SUBDIR ... do not remove this comment from this line
 
 #####################################################################################
 #

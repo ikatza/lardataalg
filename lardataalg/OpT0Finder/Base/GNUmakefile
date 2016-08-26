@@ -12,8 +12,9 @@ OBJECTS = $(SOURCES:.cxx=.o)
 
 # include options for this package
 INCFLAGS  = -I.                       #Include itself
-INCFLAGS += $(shell basictool-config --includes) #-I/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/UserDev/BasicTool 
-INCFLAGS += -I$(LARLITE_USERDEVDIR)/larcoreobj # THIS NEEDS TO BE CHANGED TO $(LARCOREOBJ_INC) ONCE ENVIRONMENT VARIABLE IS CORRECTLY SET
+#INCFLAGS += $(shell basictool-config --includes) #-I/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/UserDev/BasicTool 
+INCFLAGS += -I$(LARLITE_USERDEVDIR)/lardataalg
+INCFLAGS += -I$(LARLITE_USERDEVDIR)/larcorealg
 INCFLAGS += -I$(FHICLCPP_INC)
 INCFLAGS += -I$(CETLIB_INC)
 
@@ -26,7 +27,7 @@ OSNAMEMODE      = $(OSNAME)
 include $(LARLITE_BASEDIR)/Makefile/Makefile.${OSNAME}
 
 #LDFLAGS += $(shell basictool-config --libs) # -L/home/lsimons/scratch/LArLite_LArSoft_Int/larlite/lib -lBasicTool_LArPyBackend -lBasicTool_EMShowerTools -lBasicTool_GeoAlgo -lBasicTool_FhiclLite -BasicTool_TreeGraph
-LDFLAGS += -L$(LARLITE_LIBDIR) -lBasicTool_LArPyBackend -lBasicTool_EMShowerTools -llarcoreobj_GeoAlgo -lBasicTool_FhiclLite -BasicTool_TreeGraph # THIS NEEDS TO BE CHANGED TO $(LARCOREOBJ_LIB) ONCE ENVIRONMENT VARIABLE IS CORRECTLY SET
+LDFLAGS += -L$(LARLITE_LIBDIR) -lBasicTool_LArPyBackend -lBasicTool_EMShowerTools -llarcorealg_GeoAlgo -lBasicTool_FhiclLite -BasicTool_TreeGraph # THIS NEEDS TO BE CHANGED TO $(LARCOREOBJ_LIB) ONCE ENVIRONMENT VARIABLE IS CORRECTLY SET
 
 # call the common GNUmakefile
 include $(LARLITE_BASEDIR)/Makefile/GNUmakefile.CORE

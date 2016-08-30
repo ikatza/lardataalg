@@ -16,11 +16,10 @@ INCFLAGS += $(shell larlite-config --includes)
 INCFLAGS += $(shell basictool-config --includes)
 INCFLAGS += -I$(LARLITE_USERDEVDIR)/lardataalg
 INCFLAGS += -I$(LARLITE_USERDEVDIR)/larcorealg # TEMPORARY FIX
-INCFLAGS += -I$(FHICLCPP_INC)
-INCFLAGS += -I$(CETLIB_INC)
-INCFLAGS += -I$(LARSIM_INC)
-INCFLAGS += -I$(ART_INC)
-INCFLAGS += -I$(CANVAS_INC)
+INCFLAGS += -I$(FHICLCPP_INC) # Incured by fhiclcpp/ParameterSet
+INCFLAGS += -I$(CETLIB_INC) # Incured by fhiclcpp/ParameterSet
+INCFLAGS += -I$(LARCOREOBJ_INC) # Incured by larcorealg/Geometry/GeometryCore.h
+INCFLAGS += -I$(CLHEP_INC) # Incured by larcorealg/Geometry/WireGeo.h
 
 # platform-specific options
 OSNAME          = $(shell uname -s)
@@ -31,8 +30,7 @@ OSNAMEMODE      = $(OSNAME)
 include $(LARLITE_BASEDIR)/Makefile/Makefile.${OSNAME}
 
 LDFLAGS += $(shell larlite-config --libs)
-#LDFLAGS += $(shell basictool-config --libs) 
-LDFLAGS += -L$(LARLITE_LIBDIR) -lBasicTool_LArPyBackend -lBasicTool_EMShowerTools -llarcorealg_GeoAlgo -lBasicTool_FhiclLite -BasicTool_TreeGraph # THIS NEEDS TO BE CHANGED TO $(LARCOREOBJ_LIB) ONCE ENVIRONMENT VARIABLE IS CORRECTLY SET
+LDFLAGS += $(shell basictool-config --libs) 
 LDFLAGS += -L$(LARLITE_LIBDIR) -llardataalg_OpT0FinderBase
 LDFLAGS += -L$(LARLITE_LIBDIR) -llardataalg_OpT0PhotonLibrary
 LDFLAGS += -L$(shell root-config --libdir) -lMinuit #-lMinuit2

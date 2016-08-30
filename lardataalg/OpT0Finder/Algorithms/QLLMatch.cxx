@@ -4,6 +4,7 @@
 #include "QLLMatch.h"
 //#include "OpT0Finder/Base/OpT0FinderException.h"
 #include "lardataalg/OpT0Finder/Base/OpT0FinderException.h"
+#include "fhiclcpp/ParameterSet.h"
 #include <TMinuit.h>
 #include <cmath>
 #include <numeric>

@@ -78,7 +78,7 @@ namespace larlite {
     ////////////////////////////////////////////////////
     
     _mgr.Reset();
-    const ::larutil::Geometry* g = ::larutil::Geometry::GetME();
+//    const ::larutil::Geometry* g = ::larutil::Geometry::GetME();
 
     auto ev_flash = storage->get_data<event_opflash>("satOpFlash");// opflash");
     auto ev_hit= storage->get_data<event_ophit>("satOpFlash");// opflash");

@@ -2,15 +2,28 @@
 #define LARLITE_UBT0FINDER_CXX
 
 #include "UBT0Finder.h"
+
 #include "DataFormat/track.h"
 #include "DataFormat/opflash.h"
 #include "DataFormat/ophit.h"
 #include "DataFormat/calorimetry.h"
 #include "DataFormat/mctrack.h"
+
+#include "DataFormat/wrapper.h"
+#include "lardataobj/RecoBase/Track.h"
+#include "lardataobj/RecoBase/OpFlash.h"
+#include "lardataobj/RecoBase/OpHit.h"
+#include "lardataobj/AnalysisBase/Calorimetry.h"
+#include "lardataobj/MCBase/MCTrack.h"
+#include "lardataobj/MCBase/MCShower.h"
+
 #include "larcorealg/GeoAlgo/GeoAlgo.h"
 #include "larcorealg/GeoAlgo/GeoLineSegment.h"
+
 #include "LArUtil/Geometry.h"
+
 #include "lardataalg/OpT0Finder/Base/OpT0FinderTypes.h"
+
 namespace larlite {
 
   UBT0Finder::UBT0Finder()
@@ -102,16 +115,29 @@ namespace larlite {
     _mgr.Reset();
     // _mgr.PrintConfig();
 
-    const ::larutil::Geometry* g = ::larutil::Geometry::GetME();
+    const ::larutil::Geometry* geom = ::larutil::Geometry::GetME();
+//    NOW THIS IS COMMENTED OUT, GEOMETRY MUST BE SPECIFIED TO AVOID SEGFAULT
+//    USE PASSGEOMETRY TO PROVIDE WITH SHARED GEOMETRY.
+
+    // USE PASSDETPROP
+//    double Passit = detprop->DriftVelocity(detprop->Efield(), detprop->Temperature());
+//    _mcqclustering.PassDriftVelocity(Passit);
 
     auto ev_flash = storage->get_data<event_opflash>("opflash");// opflash");
     auto ev_hit = storage->get_data<event_ophit>    ("ophit"); // opflash");
 
-    if (!ev_flash || ev_flash->empty()) {
+//    auto ev_flash_temp = (::larlite::wrapper<std::vector<recob::OpFlash> >*)(storage->get_data(larlite::data::kLarSoftOpFlash,"opflash"));
+//    auto ev_hit_temp   = (::larlite::wrapper<std::vector<recob::OpHit> >*)(storage->get_data(larlite::data::kLarSoftOpHit,"ophit"));
+//    auto ev_flash = ev_flash_temp->product();
+//    auto ev_hit = ev_hit_temp->product();
+
+//    if (!ev_flash || ev_flash->empty()) {
+    if ( ev_flash->empty()) {
       std::cout << "No opflash found. Skipping event: " << storage->event_id() << std::endl;
       return false;
     }
-    if (!ev_hit || ev_hit->empty()) {
+//    if (!ev_hit || ev_hit->empty()) {
+    if ( ev_flash->empty()) {
       std::cout << "No ophit found. Skipping event: " << storage->event_id() << std::endl;
       return false;
     }
@@ -136,7 +162,12 @@ namespace larlite {
     auto ev_track = storage->get_data<event_track>("trackkalmanhit");
     auto ev_mctrack = storage->get_data<event_mctrack>("mcreco");
     auto ev_mcshower = storage->get_data<event_mcshower>("mcreco");
-
+//    auto ev_track_temp    = (::larlite::wrapper<std::vector<recob::Track> >*)(storage->get_data(larlite::data::kLarSoftTrack,"trackkalmanhit"));
+//    auto ev_mctrack_temp  = (::larlite::wrapper<std::vector<sim::MCTrack> >*)(storage->get_data(larlite::data::kLarSoftMCTrack,"mcreco"));
+//    auto ev_mcshower_temp = (::larlite::wrapper<std::vector<sim::MCShower> >*)(storage->get_data(larlite::data::kLarSoftMCShower,"mcreco"));
+//    auto ev_track    = ev_track_temp->product();
+//    auto ev_mctrack  = ev_mctrack_temp->product();
+//    auto ev_mcshower = ev_mcshower_temp->product();
 
     if (!_use_mc) {
       if (!ev_track || ev_track->empty()) return false;
@@ -263,9 +294,10 @@ namespace larlite {
       f.z = flash.ZCenter();
       f.y_err = flash.YWidth();
       f.z_err = flash.ZWidth();
-      f.pe_v.resize(g->NOpDets());
+      f.pe_v.resize(geom->NOpDets());
       for (unsigned int i = 0; i < f.pe_v.size(); i++) {
-        unsigned int opdet = g->OpDetFromOpChannel(i);
+        unsigned int opdet = geom->OpDetFromOpChannel(i);
+        std::cout << "\nopdet = " << opdet;        
         f.pe_v[opdet] = flash.PE(i);
       }
       f.time = flash.Time();

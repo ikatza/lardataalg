@@ -18,6 +18,7 @@
 #include "Analysis/ana_base.h"
 #include "MCQCluster.h"
 #include "lardataalg/OpT0Finder/Base/FlashMatchManager.h"
+#include "larcorealg/Geometry/GeometryCore.h"
 #include <TTree.h>
 #include <TH2D.h>
 
@@ -69,10 +70,18 @@ namespace larlite {
 
     void UseBNBCorrectnessWindow (bool yesOrNo){ _use_bnb_correctness_window = yesOrNo; }
 
+//    void PassGeometry(const ::geo::GeometryCore &PassedGeom) { geom = &PassedGeom; }
+
+//    void PassDetectorProp(const ::detinfo::DetectorProperties &PassedDetProp) { detprop = &PassedDetProp; }
+
   protected:
 
     ::flashana::FlashMatchManager _mgr;
     ::flashana::MCQCluster _mcqclustering;
+
+    // Geometry Information
+//    const ::geo::GeometryCore *geom;
+//    const ::detinfo::DetectorProperties *detprop;
 
     //Switch -- if set to true, Light path will be used with mctrack
     bool _use_light_path_w_mc;

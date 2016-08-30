@@ -2,9 +2,15 @@
 #define MCQCLUSTER_CXX
 
 #include "MCQCluster.h"
+
 #include "LArUtil/LArProperties.h"
+ 
 #include "DataFormat/mctrack.h"
 #include "DataFormat/mcshower.h"
+
+//#include "lardataobj/MCBase/MCTrack.h"
+//#include "lardataobj/MCBase/MCShower.h"
+
 #include "lardataalg/OpT0Finder/Base/OpT0FinderTypes.h"
 #include "larcorealg/GeoAlgo/GeoVector.h"
 
@@ -16,18 +22,20 @@ namespace flashana {
     , _step_size   ( 0.5   )
     , _use_xshift  ( true  )
   {}
-
+/*
   void MCQCluster::Configure(const ::fcllite::PSet &pset)
   {
     _light_yield = pset.get<double>("LightYield");
     _step_size   = pset.get<double>("StepSize");
     _use_light_path = pset.get<bool>("UseLightPath");
   }
-
+*/
   const std::vector<flashana::QCluster_t>& MCQCluster::QClusters() const
   { return _qcluster_v; }
 
   MCSource_t MCQCluster::Identify( const unsigned int ancestor_track_id,
+//                                   const std::vector<sim::MCTrack>& ev_mct,
+//                                   const std::vector<sim::MCShower>& ev_mcs) const
                                    const ::larlite::event_mctrack& ev_mct,
                                    const ::larlite::event_mcshower& ev_mcs) const
   {
@@ -67,6 +75,8 @@ namespace flashana {
 
   void MCQCluster::Construct( const ::larlite::event_mctrack& ev_mct,
                               const ::larlite::event_mcshower& ev_mcs )
+//    void MCQCluster::Construct( const std::vector<sim::MCTrack>& ev_mct,
+//                                const std::vector<sim::MCShower>& ev_mcs )
   {
 
     //
@@ -132,7 +142,10 @@ namespace flashana {
       // so that the x-position is what would be seen
       // in the TPC, not the truth x-position
       // Some constants needed
+//      double det_drift_velocity = DriftVelocity; 
       double det_drift_velocity = ::larutil::LArProperties::GetME()->DriftVelocity(); ///< cm/us
+
+      
       double event_time = trk[0].T(); // ns
       double shift_x = event_time * det_drift_velocity * pow(10, -3); //cm
       tpc_obj.reserve(tpc_obj.size() + trk.size());

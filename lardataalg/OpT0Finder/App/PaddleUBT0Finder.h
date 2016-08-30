@@ -27,7 +27,7 @@
 #include "DataFormat/mctrack.h"
 #include "larcorealg/GeoAlgo/GeoAlgo.h"
 #include "larcorealg/GeoAlgo/GeoLineSegment.h"
-#include "LArUtil/Geometry.h"
+//#include "LArUtil/Geometry.h"
 
 
 namespace larlite {

@@ -15,6 +15,8 @@
 #define OPT0FINDER_BASEPROHIBITALGO_H
 
 #include "BaseAlgorithm.h"
+#include "larcorealg/DetectorInfo/DetectorPropertiesStandard.h"
+#include <memory> // std::unique_ptr<>
 
 namespace flashana {
   /**
@@ -37,6 +39,9 @@ namespace flashana {
      * @brief CORE FUNCTION: determines if a flash and cluster are at all compatible (bool return)
      */
     virtual bool MatchCompatible(const QCluster_t& clus, const Flash_t& flash) = 0;
+
+    // Haha, this is a gross hack! Need to pass shared service provider to TimeCompatMatch Algorithm only.
+    virtual void SpecialTimeCompatMatchConfig( const std::unique_ptr<detinfo::DetectorProperties> &detProp ){};
     
   };
 }

@@ -2,7 +2,7 @@
 #define OPT0FINDER_NPTFILTER_CXX
 
 #include "NPtFilter.h"
-
+#include "fhiclcpp/ParameterSet.h"
 namespace flashana {
 
   NPtFilter::NPtFilter(const std::string name)

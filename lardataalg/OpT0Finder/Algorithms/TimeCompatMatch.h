@@ -37,6 +37,8 @@ namespace flashana {
     //void Configure(const ::fcllite::PSet &pset);
     void Configure(const ::fhicl::ParameterSet &pset);
 
+    void SpecialTimeCompatMatchConfig(const std::unique_ptr<detinfo::DetectorProperties> &detProp);
+
     bool MatchCompatible(const QCluster_t& clus, const Flash_t& flash);
 
   private:

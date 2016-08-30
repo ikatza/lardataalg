@@ -18,8 +18,13 @@
 #include "ColorPrint.h"
 #include "larcorealg/GeoAlgo/GeoAABox.h"
 //#include "FhiclLite/PSet.h"
-#include "fhiclcpp/ParameterSet.h"
+//#include "fhiclcpp/ParameterSet.h"
 #include <vector>
+
+namespace fhicl{
+  class ParameterSet;
+}
+
 namespace flashana {
 
   class FlashMatchManager;

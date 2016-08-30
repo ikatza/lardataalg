@@ -1,6 +1,12 @@
 #
 # Manager configuration
 #
+
+#include "detectorproperties_lartpcdetector.fcl"
+#include "larproperties_lartpcdetector.fcl"
+#include "detectorclocks_lartpcdetector.fcl"
+#include "geometry_lartpcdetector.fcl"
+
 FlashMatchManager: {
     Verbosity: 3
     AllowReuseFlash: true
@@ -27,6 +33,7 @@ CommonAmps: {
 
 TimeCompatMatch: {
     TimeToCm:   0.057179 # cm
+#    TimeToCm: 0.0557179
     TickPeriod: 500      # nano-sec
     FrameDriftTime: 2300.4
 }
@@ -78,4 +85,29 @@ ACTIVE_VOLUME:{
     Y: [-116.5,116.5]
     Z: [0.0,1036.8]
 }
+
+services: {
+  message: {
+    debugModules: [ "*" ]
+    destinations: {
+      toConsole: {
+        type:      "cout"
+        threshold: "DEBUG"
+        categories: { default: {} }
+      }
+    }
+  } # message
+
+  ExptGeoHelperInterface:    @local::lartpcdetector_geometry_helper
+  Geometry:                  @local::lartpcdetector_geometry
+  LArPropertiesService:      @local::lartpcdetector_properties
+  DetectorClocksService:     @local::lartpcdetector_detectorclocks
+  DetectorPropertiesService: @local::lartpcdetector_detproperties
+}
+
+
+  # THIS IS A HACK TO MAKE THE LARSOFT LIQUID ARGON PROPERTIES MATCH THE LARLITE ONES
+  services.DetectorPropertiesService.Efield:           [0.273,0.666,0.8]  # (predicted for microBooNE)
+#  LArPropertiesService.lartpcdetector_detproperties.Temperature:      89 lartpcdetector_detproperties.lartpcdetector_detproperties.standard_detproperties.
+  services.DetectorPropertiesService.Temperature:      89
 

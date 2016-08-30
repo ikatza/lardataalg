@@ -7,6 +7,11 @@
 #include "FlashMatchManager.h"
 #include "OpT0FinderException.h"
 //#include "FhiclLite/ConfigManager.h"
+
+// For Special TimeCompatMatch Service Use
+// #include "larcorealg/DetectorInfo/DetectorPropertiesStandard.h"
+#include <memory> // std::unique_ptr<>
+
 namespace flashana {
 
   FlashMatchManager::FlashMatchManager(const std::string name)
@@ -161,6 +166,13 @@ namespace flashana {
     }
 
     _configured = true;
+  }
+
+  void FlashMatchManager::TimeCompatConfig(const std::unique_ptr<detinfo::DetectorProperties> &detProp)
+  {
+    if( !_alg_match_prohibit | (_alg_match_prohibit->AlgorithmName() != "TimeCompatMatch") )
+      throw OpT0FinderException("TimeCompatMatch Algorithm is required! (or not attached)");
+    _alg_match_prohibit->SpecialTimeCompatMatchConfig(detProp);
   }
 
   BaseAlgorithm* FlashMatchManager::GetAlgo(flashana::Algorithm_t type)

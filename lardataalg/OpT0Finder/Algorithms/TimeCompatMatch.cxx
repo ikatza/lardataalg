@@ -2,12 +2,19 @@
 #define OPT0FINDER_TIMECOMPATMATCH_CXX
 
 #include "TimeCompatMatch.h"
+
+// Shared libraries
 #include "lardataalg/OpT0Finder/Base/OpT0FinderException.h"
+
 //#include "LArUtil/GeometryUtilities.h"
 //#include "LArUtil/DetectorProperties.h"
+
+#include "larcorealg/DetectorInfo/LArProperties.h"
+
 #include <cmath>
 #include <sstream>
-
+#include <memory> // std::unique_ptr<>
+#include "fhiclcpp/ParameterSet.h"
 namespace flashana {
 
   TimeCompatMatch::TimeCompatMatch(const std::string name)
@@ -18,10 +25,28 @@ namespace flashana {
 
   //void TimeCompatMatch::Configure(const ::fcllite::PSet &pset)
   void TimeCompatMatch::Configure(const ::fhicl::ParameterSet &pset)
-  {
+  { 
+     std::cout << "\n\nIn TimeCompatMatch::Configure()\n";
+
     _frame_drift_time = pset.get<double>("FrameDriftTime");
     _t2cm = pset.get<double>("TimeToCm");
     _ROrate = pset.get<double>("TickPeriod"); //ns
+
+    std::cout << "\n_t2cm is: " << _t2cm;
+    std::cout << "\n_ROrate is: " << _ROrate << "\n";
+  }
+
+  void TimeCompatMatch::SpecialTimeCompatMatchConfig(const std::unique_ptr<detinfo::DetectorProperties> &detProp)
+  { 
+    std::cout << "\n\nIn TimeCompatMatch::SpecialTimeCompatMatchConfig()\n";
+    _ROrate = detProp->SamplingRate();
+    std::cout << "\nDriftVelocity = " << detProp->DriftVelocity(detProp->Efield(), detProp->Temperature());
+    std::cout << "\ndetProp->Efield() = " << detProp->Efield();
+    std::cout << "\ndetProp->Temperature() = " << detProp->Temperature();
+    _t2cm = detProp->SamplingRate() / 1000.0 * detProp->DriftVelocity(detProp->Efield(), detProp->Temperature());
+    
+    std::cout << "\n_t2cm is: " << _t2cm;
+    std::cout << "\n_ROrate is: " << _ROrate << "\n";
   }
 
   bool TimeCompatMatch::MatchCompatible(const QCluster_t& clus, const Flash_t& flash)

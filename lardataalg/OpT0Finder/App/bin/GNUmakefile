@@ -6,6 +6,14 @@ CXXFLAGS += -pedantic -Wno-unused-local-typedefs
 CXXFLAGS += -I$(FHICLCPP_INC)
 CXXFLAGS += -I$(CETLIB_INC)
 CXXFLAGS += -I$(LARLITE_COREDIR)
+
+CXXFLAGS += -I$(LARDATAOBJ_INC) # THE FOLLOWING DEPENDENCIES INCURRED BY USING LARSOFT WRAPPED DATA PRODUCTS
+CXXFLAGS += -I$(NUSIMDATA_INC) # MCTRUTH INCLUDE
+CXXFLAGS += -I$(LARCORE_INC) # Incured by larcorealg/DetectorInfo/DetectorClocksStandardTestHelpers.h
+CXXFLAGS += -I$(LARCOREOBJ_INC) # Incured by larcorealg/Geometry/GeometryCore.h
+CXXFLAGS += -I$(CLHEP_INC)
+CXXFLAGS += -I$(MESSAGEFACILITY_INC) #include "messagefacility/MessageLogger/MessageLogger.h"
+
 CXXFLAGS += -I$(LARLITE_USERDEVDIR)/larcorealg/
 CXXFLAGS += -I$(LARLITE_USERDEVDIR)/BasicTool/
 CXXFLAGS += -I$(LARLITE_COREDIR)/DataFormat
@@ -20,6 +28,9 @@ LDFLAGS += -L$(LARLITE_LIBDIR) -llardataalg_OpT0PhotonLibrary
 LDFLAGS += -L$(LARLITE_LIBDIR) -llardataalg_OpT0FinderAlgorithms
 LDFLAGS += -L$(FHICLCPP_LIB) -lfhiclcpp
 LDFLAGS += -L$(CETLIB_LIB) -lcetlib
+LDFLAGS += -L$(LARDATAOBJ_LIB) -llardataobj_MCBase -llardataobj_RecoBase
+LDFLAGS += -L$(LARCORE_LIB) -llarcore_Geometry
+LDFLAGS += -L$(LARDATA_LIB) -llardata_DetectorInfo
 
 # platform-specific options
 OSNAME = $(shell uname -s)
@@ -27,7 +38,7 @@ include $(LARLITE_BASEDIR)/Makefile/Makefile.${OSNAME}
 
 # Add your program below with a space after the previous one.
 # This makefile compiles all binaries specified below.
-PROGRAMS = example
+PROGRAMS = example exampletwo unittest
 
 all:		$(PROGRAMS)
 

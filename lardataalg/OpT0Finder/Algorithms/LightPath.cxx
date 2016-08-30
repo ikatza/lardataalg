@@ -2,6 +2,7 @@
 #define LIGHTPATH_CXX
 
 #include "LightPath.h"
+#include "fhiclcpp/ParameterSet.h"
 
 namespace flashana {
 

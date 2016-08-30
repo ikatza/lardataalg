@@ -18,8 +18,14 @@ INCFLAGS += $(shell larlite-config --includes)
 INCFLAGS += -I$(LARLITE_USERDEVDIR)/larcorealg
 INCFLAGS += -I$(LARLITE_USERDEVDIR)/lardataalg
 INCFLAGS += -I$(LARLITE_USERDEVDIR)/BasicTool
-INCFLAGS += -I$(FHICLCPP_INC)
-INCFLAGS += -I$(CETLIB_INC)
+INCFLAGS += -I$(LARDATAOBJ_INC) # Incured by Shared Data Objects
+INCFLAGS += -I$(LARCOREOBJ_INC) # Incured by Shared Data Objects
+INCFLAGS += -I$(NUSIMDATA_INC) # Incured by Shared Data Objects
+INCFLAGS += -I$(FHICLCPP_INC) # Incured by fhiclcpp/ParameterSet
+INCFLAGS += -I$(CETLIB_INC) # Incured by fhiclcpp/ParameterSet
+
+# Includes for LArSoft shared Data Products
+INCFLAGS += -I$(CLHEP_INC) # Incured by larcorealg/Geometry/WireGeo.h
 
 # platform-specific options
 OSNAME          = $(shell uname -s)

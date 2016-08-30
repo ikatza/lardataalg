@@ -21,6 +21,9 @@
 #include "BaseProhibitAlgo.h"
 #include "BaseFlashMatch.h"
 #include "BaseFlashHypothesis.h"
+#include "fhiclcpp/ParameterSet.h"
+#include "larcorealg/DetectorInfo/DetectorPropertiesStandard.h"
+
 namespace flashana {
   /**
      \class FlashMatchManager
@@ -47,6 +50,8 @@ namespace flashana {
     /// Configuration
     //void Configure(const std::string="");
     void Configure(const ::fhicl::ParameterSet&);
+
+    void TimeCompatConfig(const std::unique_ptr<detinfo::DetectorProperties> &detProp);
 
     /// Algorithm getter
     flashana::BaseAlgorithm* GetAlgo(flashana::Algorithm_t type);

@@ -15,12 +15,18 @@
 #define MCINTERACTION_H
 
 #include <iostream>
+
 #include "DataFormat/mctrack.h"
 #include "DataFormat/mcshower.h"
+
+#include "lardataobj/MCBase/MCTrack.h"
+#include "lardataobj/MCBase/MCShower.h"
+
 #include "lardataalg/OpT0Finder/Base/OpT0FinderTypes.h"
 #include "lardataalg/OpT0Finder/Base/BaseAlgorithm.h"
 #include "lardataalg/OpT0Finder/Algorithms/LightPath.h"
-#include "FhiclLite/PSet.h"
+
+//#include "FhiclLite/PSet.h"
 #include "fhiclcpp/ParameterSet.h"
 
 namespace flashana {
@@ -39,7 +45,7 @@ namespace flashana {
     /// Default destructor
     ~MCQCluster(){}
 
-    void Configure(const ::fcllite::PSet &pset);
+//    void Configure(const ::fcllite::PSet &pset);
 
     void Configure(const ::fhicl::ParameterSet &pset){
       _light_yield = pset.get<double>("LightYield");
@@ -49,6 +55,8 @@ namespace flashana {
 
     void Construct( const larlite::event_mctrack&,
                     const larlite::event_mcshower& );
+//    void Construct( const std::vector<sim::MCTrack>&,
+//                    const std::vector<sim::MCShower>& );
 
     const std::vector<flashana::QCluster_t>& QClusters() const;
 
@@ -68,11 +76,20 @@ namespace flashana {
     void Swap(std::vector<flashana::QCluster_t>&&,
 	      std::vector<flashana::MCSource_t>&&);
     #endif
+
+//    void PassDriftVelocity(const double PassedDriftVelocity) { DriftVelocity = PassedDriftVelocity; }
+
   private:
-  
+
+    // DriftVelocity Information
+//    double DriftVelocity; 
+ 
     flashana::MCSource_t Identify( const unsigned int,
 				   const larlite::event_mctrack&,
 				   const larlite::event_mcshower& ) const;
+//    flashana::MCSource_t Identify( const unsigned int,
+//				   const std::vector<sim::MCTrack>&,
+//				   const std::vector<sim::MCShower>& ) const;
 
     mutable int _n;
     

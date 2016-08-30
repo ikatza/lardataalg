@@ -13,6 +13,7 @@
 #pragma link C++ class larlite::MichelFlashMatching+;
 #pragma link C++ class larlite::PaddleUBT0Finder+;
 #pragma link C++ class flashana::MCQCluster+;
+//#pragma link C++ class larlite::UnitTest1+;
 //ADD_NEW_CLASS ... do not change this line
 #endif
 

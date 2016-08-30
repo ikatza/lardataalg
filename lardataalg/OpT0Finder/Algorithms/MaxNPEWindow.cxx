@@ -5,6 +5,7 @@
 #include "TimeRange.h"
 #include <map>
 #include <numeric>
+#include "fhiclcpp/ParameterSet.h"
 //#include <functional>
 namespace flashana {
 

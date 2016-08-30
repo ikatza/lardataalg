@@ -4,6 +4,7 @@
 #include "QWeightPoint.h"
 //#include "OpT0Finder/Base/OpT0FinderException.h"
 #include "lardataalg/OpT0Finder/Base/OpT0FinderException.h"
+#include "fhiclcpp/ParameterSet.h"
 #include <cmath>
 #include <sstream>
 #include <numeric>

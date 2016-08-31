@@ -115,13 +115,13 @@ namespace larlite {
     _mgr.Reset();
     // _mgr.PrintConfig();
 
-    const ::larutil::Geometry* geom = ::larutil::Geometry::GetME();
+    const ::larutil::Geometry* LArLitegeom = ::larutil::Geometry::GetME();
 //    NOW THIS IS COMMENTED OUT, GEOMETRY MUST BE SPECIFIED TO AVOID SEGFAULT
 //    USE PASSGEOMETRY TO PROVIDE WITH SHARED GEOMETRY.
 
     // USE PASSDETPROP
-//    double Passit = detprop->DriftVelocity(detprop->Efield(), detprop->Temperature());
-//    _mcqclustering.PassDriftVelocity(Passit);
+    double Passit = detprop->DriftVelocity(detprop->Efield(), detprop->Temperature());
+    _mcqclustering.PassDriftVelocity(Passit);
 
     auto ev_flash = storage->get_data<event_opflash>("opflash");// opflash");
     auto ev_hit = storage->get_data<event_ophit>    ("ophit"); // opflash");
@@ -294,9 +294,9 @@ namespace larlite {
       f.z = flash.ZCenter();
       f.y_err = flash.YWidth();
       f.z_err = flash.ZWidth();
-      f.pe_v.resize(geom->NOpDets());
+      f.pe_v.resize(LArLitegeom->NOpDets());
       for (unsigned int i = 0; i < f.pe_v.size(); i++) {
-        unsigned int opdet = geom->OpDetFromOpChannel(i);
+        unsigned int opdet = LArLitegeom->OpDetFromOpChannel(i);
         std::cout << "\nopdet = " << opdet;        
         f.pe_v[opdet] = flash.PE(i);
       }

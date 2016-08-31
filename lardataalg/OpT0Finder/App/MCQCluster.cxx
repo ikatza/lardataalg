@@ -3,7 +3,7 @@
 
 #include "MCQCluster.h"
 
-#include "LArUtil/LArProperties.h"
+//#include "LArUtil/LArProperties.h"
  
 #include "DataFormat/mctrack.h"
 #include "DataFormat/mcshower.h"
@@ -142,8 +142,8 @@ namespace flashana {
       // so that the x-position is what would be seen
       // in the TPC, not the truth x-position
       // Some constants needed
-//      double det_drift_velocity = DriftVelocity; 
-      double det_drift_velocity = ::larutil::LArProperties::GetME()->DriftVelocity(); ///< cm/us
+      double det_drift_velocity = DriftVelocity; 
+//      double det_drift_velocity = ::larutil::LArProperties::GetME()->DriftVelocity(); ///< cm/us
 
       
       double event_time = trk[0].T(); // ns

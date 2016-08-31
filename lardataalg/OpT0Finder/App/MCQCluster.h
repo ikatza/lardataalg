@@ -77,12 +77,12 @@ namespace flashana {
 	      std::vector<flashana::MCSource_t>&&);
     #endif
 
-//    void PassDriftVelocity(const double PassedDriftVelocity) { DriftVelocity = PassedDriftVelocity; }
+    void PassDriftVelocity(const double PassedDriftVelocity) { DriftVelocity = PassedDriftVelocity; }
 
   private:
 
     // DriftVelocity Information
-//    double DriftVelocity; 
+    double DriftVelocity; 
  
     flashana::MCSource_t Identify( const unsigned int,
 				   const larlite::event_mctrack&,

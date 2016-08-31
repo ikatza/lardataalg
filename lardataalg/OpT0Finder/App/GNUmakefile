@@ -3,7 +3,7 @@
 #
 
 # specific names for this package
-DICT  = lardataalg_OpT0FinderAppCint
+DICT  = lardataalg_OpT0FinderAppDict
 SHLIB = liblardataalg_OpT0FinderApp.so
 SOURCES = $(filter-out $(DICT).cxx, $(wildcard *.cxx))
 FMWK_HEADERS = LinkDef.h $(DICT).h

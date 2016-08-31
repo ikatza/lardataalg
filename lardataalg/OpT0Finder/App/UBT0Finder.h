@@ -70,9 +70,9 @@ namespace larlite {
 
     void UseBNBCorrectnessWindow (bool yesOrNo){ _use_bnb_correctness_window = yesOrNo; }
 
-//    void PassGeometry(const ::geo::GeometryCore &PassedGeom) { geom = &PassedGeom; }
+    void PassGeometry(const ::geo::GeometryCore &PassedGeom) { LArSoftgeom = &PassedGeom; }
 
-//    void PassDetectorProp(const ::detinfo::DetectorProperties &PassedDetProp) { detprop = &PassedDetProp; }
+    void PassDetectorProp(const ::detinfo::DetectorProperties &PassedDetProp) { detprop = &PassedDetProp; }
 
   protected:
 
@@ -80,8 +80,8 @@ namespace larlite {
     ::flashana::MCQCluster _mcqclustering;
 
     // Geometry Information
-//    const ::geo::GeometryCore *geom;
-//    const ::detinfo::DetectorProperties *detprop;
+    const ::geo::GeometryCore *LArSoftgeom;
+    const ::detinfo::DetectorProperties *detprop;
 
     //Switch -- if set to true, Light path will be used with mctrack
     bool _use_light_path_w_mc;

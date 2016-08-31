@@ -248,8 +248,8 @@ int main(int argc, char** argv){
   my_unit->SetTrigTime(0.);
   my_unit->UseBNBCorrectnessWindow(false);
   my_unit->UseLightPathWithMC(false);
-//  my_unit->PassGeometry(*geom);
-//  my_unit->PassDetectorProp(*detProp);
+  my_unit->PassGeometry(*geom);
+  my_unit->PassDetectorProp(*detProp);
 
   size_t temp = my_proc.add_process( my_unit ); //new larlite::UBT0Finder());
 

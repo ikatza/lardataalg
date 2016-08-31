@@ -4,7 +4,9 @@ set( ROOTLIB -L$ENV{ROOTSYS}/lib -lCore -lRIO -lNet -lHist -lGraf -lGraf3d -lGpa
 link_libraries( ${LIB_NAME} -L$ENV{BOOST_LIB} ${ROOTLIB} )
 
 cet_make( LIBRARIES canvas_Persistency_Common
-                    larcoreobj_GeoAlgo
+                    larcorealg_GeoAlgo
+                    larcorealg_Geometry
+                    larcorealg_DetectorInfo
                     lardataalg_PhotonLibrary
 		    ${ROOT_BASIC_LIB_LIST}
 		    ${FHICLCPP}

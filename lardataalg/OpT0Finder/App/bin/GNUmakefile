@@ -38,7 +38,7 @@ include $(LARLITE_BASEDIR)/Makefile/Makefile.${OSNAME}
 
 # Add your program below with a space after the previous one.
 # This makefile compiles all binaries specified below.
-PROGRAMS = example exampletwo unittest
+PROGRAMS = unittest
 
 all:		$(PROGRAMS)
 

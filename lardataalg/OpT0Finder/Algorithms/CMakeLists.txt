@@ -6,7 +6,7 @@ link_libraries( ${LIB_NAME} -L$ENV{BOOST_LIB} ${ROOTLIB} )
 
 cet_make( LIBRARIES canvas_Persistency_Common
                     lardataalg_OpT0Finder_Base
-                    larcoreobj_GeoAlgo
+                    larcorealg_GeoAlgo
                     lardataalg_PhotonLibrary
                     ${SIMULATIONBASE}
                     ${ART_FRAMEWORK_CORE}

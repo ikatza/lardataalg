@@ -297,7 +297,7 @@ namespace larlite {
       f.pe_v.resize(LArLitegeom->NOpDets());
       for (unsigned int i = 0; i < f.pe_v.size(); i++) {
         unsigned int opdet = LArLitegeom->OpDetFromOpChannel(i);
-        std::cout << "\nopdet = " << opdet;        
+//        std::cout << "\nopdet = " << opdet;        
         f.pe_v[opdet] = flash.PE(i);
       }
       f.time = flash.Time();

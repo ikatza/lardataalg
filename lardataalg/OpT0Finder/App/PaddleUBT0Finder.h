@@ -18,13 +18,23 @@
 #include "Analysis/ana_base.h"
 #include "lardataalg/OpT0Finder/Base/FlashMatchManager.h"
 #include "lardataalg/OpT0Finder/Algorithms/LightPath.h"
+
 #include <TTree.h>
 #include <TH2D.h>
+
 #include "DataFormat/track.h"
 #include "DataFormat/opflash.h"
 #include "DataFormat/ophit.h"
 #include "DataFormat/calorimetry.h"
 #include "DataFormat/mctrack.h"
+
+#include "DataFormat/wrapper.h"
+#include "lardataobj/RecoBase/Track.h"
+#include "lardataobj/RecoBase/OpFlash.h"
+#include "lardataobj/RecoBase/OpHit.h"
+#include "lardataobj/AnalysisBase/Calorimetry.h"
+#include "lardataobj/MCBase/MCTrack.h"
+
 #include "larcorealg/GeoAlgo/GeoAlgo.h"
 #include "larcorealg/GeoAlgo/GeoLineSegment.h"
 //#include "LArUtil/Geometry.h"

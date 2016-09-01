@@ -82,10 +82,17 @@ namespace larlite {
 
     auto ev_flash = storage->get_data<event_opflash>("satOpFlash");// opflash");
     auto ev_hit= storage->get_data<event_ophit>("satOpFlash");// opflash");
+//    auto ev_flash_temp = (::larlite::wrapper<std::vector<recob::OpFlash> >*)(storage->get_data(larlite::data::kLarSoftOpFlash,"satOpFlash"));
+//    auto ev_hit_temp   = (::larlite::wrapper<std::vector<recob::OpHit> >*)(storage->get_data(larlite::data::kLarSoftOpHit,"satOpFlash"));
+//    auto ev_flash = ev_flash_temp->product();
+//    auto ev_hit = ev_hit_temp->product();
     
     auto ev_track = storage->get_data<event_track>("trackkalmanhit");
     auto ev_mctrack = storage->get_data<event_mctrack>("mcreco");
-    
+//    auto ev_track_temp    = (::larlite::wrapper<std::vector<recob::Track> >*)(storage->get_data(larlite::data::kLarSoftTrack,"trackkalmanhit"));
+//    auto ev_mctrack_temp  = (::larlite::wrapper<std::vector<sim::MCTrack> >*)(storage->get_data(larlite::data::kLarSoftMCTrack,"mcreco"));
+//    auto ev_track    = ev_track_temp->product();
+//    auto ev_mctrack  = ev_mctrack_temp->product();
     
     if(!ev_flash || ev_flash->empty()) {
       std::cout<<"No opflash found. Skipping event: "<<storage->event_id()<<std::endl;

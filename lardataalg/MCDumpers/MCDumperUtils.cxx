@@ -53,7 +53,8 @@ std::string sim::TruthReactionMode(int mode) {
     case  0: return "quasi-elastic";
     case  1: return "resonant";
     case  2: return "deep inelastic";
-    case  3: return "coherent";
+    case  3: return "coherent scattering";
+    case  4: return "coherent elastic scattering";
     default: return "unknown mode";
   } // switch
 
@@ -78,6 +79,7 @@ std::string sim::TruthInteractionTypeName(int type) {
     case simb::kDiffractive                   : return "diffractive";
     case simb::kEM                            : return "electromagnetic";
     case simb::kWeakMix                       : return "weak mixing";
+    case simb::kDarkNC                        : return "dark neutral current";
     case simb::kNuanceOffset                  : return "<nuance offset>";
     case simb::kCCQE                          : return "charged current quasi-elastic scattering";
     case simb::kNCQE                          : return "neutral current quasi-elastic scattering";

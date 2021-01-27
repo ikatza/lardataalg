@@ -242,7 +242,7 @@ void sim::dump::DumpMCParticle(
   out << "; generator vertex " << particle.GetGvtx();
   out << "\n" << indent << "created via "
     << (particle.Process().empty()? "magics": particle.Process());
-  if (particle.Mother() == 0) out << " by the gods";
+  if (particle.Mother() == -1) out << " by the gods";
   else                        out << " from ID=" << particle.Mother();
 
   const unsigned int nDaughters = particle.NumberDaughters();
